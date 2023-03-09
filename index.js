@@ -18,12 +18,12 @@ const client = new MongoClient(MONGO_URL); // phone dial
 await client.connect(); // call button
 console.log("Mongo is connected ✌️😊");
 
-app.get("/", function (request, response) {
+app.get("/",cors(), function (request, response) {
   response.send("🙋‍♂️, 🌏 🎊✨🤩");
 });
 
-app.use("/student", studentRouter);
-app.use("/mentor", mentorRouter);
+app.use("/student",cors(), studentRouter);
+app.use("/mentor",cors(), mentorRouter);
 
 app.listen(PORT, () => console.log("server started on port : ", PORT));
 
